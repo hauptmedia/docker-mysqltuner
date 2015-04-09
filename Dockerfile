@@ -10,5 +10,8 @@ RUN	apt-get update -qq && \
 	apt-get autoremove --yes && \
 	rm -rf /var/lib/{apt,dpkg,cache,log}/
 
+# install mysqltuner
+RUN	curl -sL -o /usr/local/bin/mysqltuner http://mysqltuner.pl && \
+	chmod +x /usr/local/bin/mysqltuner
 
-CMD ["bash"]
+CMD ["/usr/local/bin/mysqltuner"]
